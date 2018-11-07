@@ -16,5 +16,7 @@ jay = Mechanic.new("Jay", "Sport")
 volks = Car.new("Volks", "Polo", "Banger", bob, joe)
 bmw = Car.new("BMW", "C", "Lux", jim, sam)
 dodge = Car.new("Dodge", "Viper", "Sport", tom, jay)
+beetle = Car.new("Volks", "Beetle", "Lux", jim, sam)
+twingo = Car.new("Renault", "Twingo", "Sport", tom, jay)
 
 binding.pry

@@ -7,8 +7,6 @@ class CarOwner
 
   def initialize(name)
     @name = name
-    @cars = []
-    @mechanics = []
     @@all << self
   end
 
@@ -17,17 +15,15 @@ class CarOwner
   end
 
   def cars_owned
-    Car.all.select {|car| self.cars << car if car.owner == self}
-    self.cars
+    Car.all.map {|car| car if car.owner == self}
   end
 
   def mechanics_used
-    self.cars_owned.select {|car| self.mechanics << car.mechanic if car.owner == self}
-    self.mechanics
+    Car.all.map {|car| car.mechanic if car.owner == self}.uniq
   end
 
   def self.average_cars_owned
-    average = Car.all.length / self.all.length
+    average = Car.all.length.to_f / self.all.length
     average
   end
 

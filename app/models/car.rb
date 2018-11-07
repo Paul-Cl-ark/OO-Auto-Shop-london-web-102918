@@ -5,7 +5,7 @@ class Car
 
   @@all = []
 
-  def initialize(make, model, classification, owner=nil, mechanic=nil)
+  def initialize(make, model, classification, owner, mechanic)
     @make = make
     @model = model
     @classification = classification
@@ -22,7 +22,7 @@ class Car
     self.all.map {|car| car.classification}.uniq
   end
 
-  def specialised_mechanics(car_classification)
-      Mechanics.all.select {|mechanic| mechanic if mechanic.specialty == car_classification}
+  def self.specialised_mechanics(car_classification)
+      Mechanic.all.select {|mechanic| mechanic if mechanic.specialty == car_classification}
   end
 end
